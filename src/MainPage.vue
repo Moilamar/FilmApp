@@ -1,17 +1,17 @@
 <template>
   <v-ons-page>
-    <custom-toolbar>Page 1</custom-toolbar>
+    <custom-toolbar>{{ name }}</custom-toolbar>
     <div id="banner"></div>
     <div id="main-bottom">
       <div id="main-menu">
-        <ons-row align='center'>
-          <ons-col></ons-col>
+        <ons-row>
+          <ons-col/>
           <ons-col><ons-button></ons-button></ons-col>
           <ons-col><ons-button></ons-button></ons-col>
           <ons-col><ons-button></ons-button></ons-col>
           <ons-col></ons-col>
         </ons-row>
-        <ons-row align='center'>
+        <ons-row>
           <ons-col></ons-col>
           <ons-col><ons-button></ons-button></ons-col>
           <ons-col><ons-button></ons-button></ons-col>
@@ -24,8 +24,11 @@
 </template>
 
 <script>
+  import Vue from 'vue';
+  import VueOnsen from 'vue-onsenui';
+  import Vuex from 'vuex'
   import customToolbar from './CustomToolbar';
-  import page2 from './Page2';
+  import page2 from './components/Page2';
   export default {
      methods: {
        pop(){
@@ -38,4 +41,15 @@
      props: ['pageStack'],
      components: { customToolbar }
   }
+
+  Vue.component('main-menu', {
+    template: <div></div>
+  });
+
+  new Vue({
+    el: "#app",
+    data: {
+      name: "viddu"
+    } 
+  });
 </script>

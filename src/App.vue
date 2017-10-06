@@ -5,13 +5,14 @@
 </template>
 
 <script>
-  import mainPage from './MainPage';
-  //import page2 from './Page2';
+  import mainPage from './components/MainPage';
+  import page2 from './components/Page2';
 
   export default {
     data() {
       return {
-        pageStack: [mainPage]
+        pageStack: [mainPage],
+        navigator: this
       }
     }
   }
