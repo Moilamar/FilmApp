@@ -2,8 +2,7 @@
   <v-ons-page>
     <custom-toolbar>Page 1</custom-toolbar>
     <p style="text-align: center">
-      This is the first page
-      <v-ons-button @click="push">Push Page 2</v-ons-button>
+      FilmApp
     </p>
   </v-ons-page>
 </template>

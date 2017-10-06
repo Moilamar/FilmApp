@@ -1,17 +1,17 @@
 <template>
   <v-ons-navigator :page-stack="pageStack">
-    <component :is="page" v-for="page in pageStack" :page-stack="pageStack"></component>
+    <component :is="page" v-for="(page, iter) in pageStack" :page-stack="pageStack" v-bind:key="iter"></component>
   </v-ons-navigator>
 </template>
 
 <script>
-  import page1 from './Page1';
-  import page2 from './Page2';
+  import mainPage from './MainPage';
+  //import page2 from './Page2';
 
   export default {
     data() {
       return {
-        pageStack: [page1]
+        pageStack: [mainPage]
       }
     }
   }
