@@ -1,0 +1,42 @@
+
+// Variables
+
+// Mixins
+
+// Styles
+
+// Portrait screen layout
+@media all and (orientation:portrait) {
+    #banner {
+        background:#333;
+        height: 35vh;
+        width: 100vw;
+    }
+
+    #main-bottom {
+        background: #DB4A4A;
+        height: 100%;
+        width: 100%;
+        #main-menu {
+            padding-top: 50px;
+            ons-row {
+                margin-bottom: 20px;
+                ons-col ons-button {
+                    width: 15vw;
+                    height: 15vw;
+                    border-radius: 7.5vw;
+                    background: white;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+// Landscape screelayout
+@media all and (orientation:landscape) {
+    
+}
+
+

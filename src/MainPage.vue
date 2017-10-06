@@ -1,9 +1,25 @@
 <template>
   <v-ons-page>
     <custom-toolbar>Page 1</custom-toolbar>
-    <p style="text-align: center">
-      FilmApp
-    </p>
+    <div id="banner"></div>
+    <div id="main-bottom">
+      <div id="main-menu">
+        <ons-row align='center'>
+          <ons-col></ons-col>
+          <ons-col><ons-button></ons-button></ons-col>
+          <ons-col><ons-button></ons-button></ons-col>
+          <ons-col><ons-button></ons-button></ons-col>
+          <ons-col></ons-col>
+        </ons-row>
+        <ons-row align='center'>
+          <ons-col></ons-col>
+          <ons-col><ons-button></ons-button></ons-col>
+          <ons-col><ons-button></ons-button></ons-col>
+          <ons-col><ons-button></ons-button></ons-col>
+          <ons-col></ons-col>
+        </ons-row>
+      </div>
+    </div>
   </v-ons-page>
 </template>
 
