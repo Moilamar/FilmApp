@@ -29,8 +29,9 @@
 
   export default {
     data() {
+      //this.$store.commit('setPageStack', this.pageStack);
       return {
-        test: this.$store.state.test
+        0: 0
       }
     },
     methods: {
@@ -38,7 +39,7 @@
         this.pageStack.pop();
       },
       push(page) {
-        console.log(this.test);
+        console.log(this.pageStack);
         switch(page){
           case 1: this.pageStack.push(page2); break;
           case 2: this.pageStack.push(); break;
@@ -46,7 +47,7 @@
         }
       }
     },
-    props: ['pageStack'],
+    props: [ 'pageStack'],
     components: { customToolbar }
   }
 </script>

@@ -1,9 +1,26 @@
 
 // Variables
 
+$red: #DB4A4A;
+
 // Mixins
 
 // Styles
+
+.toolbar {
+    background: $red;
+    .left {
+        margin-left: 15px;
+    }
+    .toolbar__title {
+        color: white;
+    }
+}
+
+.ion-navicon {
+    
+    color: white;
+}
 
 // Portrait screen layout
 @media all and (orientation:portrait) {
@@ -11,10 +28,12 @@
         background:#333;
         height: 35%;
         width: 100vw;
+        background: url('./media/logo.svg');
+        background-size: 100% 100%;
     }
 
     #main-bottom {
-        background: #DB4A4A;
+        background: $red;
         height: 65%;
         width: 100vw;
         -webkit-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);

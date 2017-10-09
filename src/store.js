@@ -3,13 +3,19 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import mainPage from './components/MainPage';
+
 export const store = new Vuex.Store({
   state: {
-    test: 0
+    pageStack: [mainPage],
+    openSide: false
   },
   mutations: {
-    increment (state) {
-      state.test++
+    setPageStack(state, pageStack) {
+      state.pageStack = pageStack;
+    },
+    toggleSideSplitter(state) {
+      state.openSide = !state.openSide;
     }
   }
 });
