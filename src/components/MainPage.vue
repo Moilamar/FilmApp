@@ -6,7 +6,7 @@
       <div id="main-menu">
         <v-ons-row>
           <v-ons-col/>
-          <v-ons-col><v-ons-button @click="push(1)"></v-ons-button></v-ons-col>
+          <v-ons-col><v-ons-button @click="push(2)"></v-ons-button></v-ons-col>
           <v-ons-col><v-ons-button @click="push(2)"></v-ons-button></v-ons-col>
           <v-ons-col><v-ons-button @click="push(3)"></v-ons-button></v-ons-col>
           <v-ons-col/>
@@ -25,7 +25,6 @@
 
 <script>
   import customToolbar from './CustomToolbar';
-  import page2 from './Page2';
 
   export default {
     data() {
@@ -36,16 +35,11 @@
     },
     methods: {
       pop(){
-        this.pageStack.pop();
+        this.$store.commit('popPageStack');
       },
       push(page) {
-        console.log(this.pageStack);
-        switch(page){
-          case 1: this.pageStack.push(page2); break;
-          case 2: this.pageStack.push(); break;
-          default: console.log("Error: Cannot find page."); break;
-        }
-      }
+        this.$store.commit('pushPageStack', page);
+      },
     },
     props: [ 'pageStack'],
     components: { customToolbar }

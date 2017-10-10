@@ -6,8 +6,6 @@
 </template>
 
 <script>
-  import mainPage from './components/MainPage';
-  import page2 from './components/Page2';
   import { store } from './store';
 
   export default {
