@@ -11,7 +11,8 @@ import searchPage from './components/SearchPage';
 export const store = new Vuex.Store({
   state: {
     pageStack: [mainPage],
-    openSide: false
+    openSide: false,
+    searchParam: ""
   },
   mutations: {
     setPageStack(state, pageStack) {
@@ -31,6 +32,10 @@ export const store = new Vuex.Store({
     },
     toggleSideSplitter(state) {
       state.openSide = !state.openSide;
+    },
+    setSearchParam(state, searchParam) {
+      searchParam = encodeURI(searchParam);
+      state.searchParam = searchParam;
     }
   }
 });

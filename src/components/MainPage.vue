@@ -29,23 +29,35 @@
 
 <script>
   import customToolbar from './CustomToolbar';
+  let axios = require('axios');
 
   export default {
     data() {
       return {
-        searchParam: ""
+        searchParam: "",
+        searchQueryUrl: "https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query="+this.$store.state.searchParam+"&page=1&include_adult=false"
       }
     },
     methods: {
       pop(){
-        this.$store.commit('popPageStack');
+        this.$store.commit('popPageStack'); // Go back
       },
       push(page) {
-        this.$store.commit('pushPageStack', page);
+        this.$store.commit('pushPageStack', page);  // Change page
       },
-      initSearch(searchParam) {
-        
-        console.log("https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query=searchParam&page=1&include_adult=false");
+      initSearch() {
+        if (this.searchParam.length > 2) {
+          this.$store.commit('setSearchParam', searchParam);
+          axios.get(this.searchQueryUrl)  // Ajax call to TMDB API
+            .then(function (response) {
+                console.log(response);
+                this.$store.commit('pushPageStack', 4);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
+            // Loading animation
+        }
       }
     },
     props: [ 'pageStack'],
