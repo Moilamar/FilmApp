@@ -30,6 +30,13 @@ $red: #DB4A4A;
         width: 100vw;
         background: url('./media/logo.svg');
         background-size: 100% 100%;
+        color: white;
+        text-align: center;
+        .zmdi-spinner {
+            position: relative;
+            top: 25%;
+            transform: translateY(-50%); 
+        }
     }
 
     #main-bottom {

@@ -1,12 +1,14 @@
 <template>
   <v-ons-page>
     <custom-toolbar>My Movie List</custom-toolbar>
-    <div id="banner"></div>
+    <div id="banner">
+      <ons-icon v-if="this.searching" size="150px" spin icon="md-spinner"></ons-icon>
+    </div>
     <div id="main-bottom">
-    <form class="center" @submit.prevent="initSearch()">
-      <v-ons-search-input modifier="material" float name="search" placeholder="Search movies" 
-      @keyup.enter="submit" v-model="searchParam"></v-ons-search-input>
-    </form>
+      <form class="center" @submit.prevent="initSearch()">
+        <v-ons-search-input modifier="material" float name="search" placeholder="Search movies" 
+        @keyup.enter="submit" v-model="searchParam"></v-ons-search-input>
+      </form>
       <div id="main-menu">
         <v-ons-row>
           <v-ons-col/>
@@ -35,7 +37,8 @@
     data() {
       return {
         searchParam: "",
-        searchQueryUrl: "https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query="+this.$store.state.searchParam+"&page=1&include_adult=false"
+        searchQueryUrl: "https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query="+this.$store.state.searchParam+"&page=1&include_adult=false",
+        searching: false
       }
     },
     methods: {
@@ -47,8 +50,8 @@
       },
       initSearch() {
         if (this.searchParam.length > 2) {
-          this.$store.commit('setSearchParam', searchParam);
-          axios.get(this.searchQueryUrl)  // Ajax call to TMDB API
+          this.$store.commit('setSearchParam', this.searchParam);
+          axios.get(this.searchQueryUrl)
             .then(function (response) {
                 console.log(response);
                 this.$store.commit('pushPageStack', 4);
@@ -56,7 +59,7 @@
             .catch(function (error) {
                 console.log(error.message);
             });
-            // Loading animation
+            this.searching = true; // Trigger loading animation in the template
         }
       }
     },
