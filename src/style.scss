@@ -39,14 +39,23 @@ $red: #DB4A4A;
         -webkit-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
         -moz-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
         box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
+        .center {
+            text-align: center;
+            padding-top: 6vw;
+            .search-input {
+                margin: 0 auto;
+                height: 40px;
+            }
+        }
+        
         #main-menu {
-            padding-top: 10vh;
+            padding-top: 6vh;
             ons-row {
                 margin-bottom: 20px;
                 ons-col ons-button {
-                    width: 15vw;
-                    height: 15vw;
-                    border-radius: 7.5vw;
+                    width: 18vw;
+                    height: 18vw;
+                    border-radius: 9vw;
                     background: white;
                     display: block;
                     margin: 0 auto;

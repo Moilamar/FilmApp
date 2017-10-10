@@ -1,22 +1,25 @@
 <template>
   <v-ons-page>
-    <custom-toolbar :back-label="'Page 1'">Page 2</custom-toolbar>
-    <p style="text-align: center">This is the second page</p>
+    <custom-toolbar :back-label="'Back'">Search for (search param here)</custom-toolbar>
+    
   </v-ons-page>
 </template>
 
 <script>
   import customToolbar from './CustomToolbar';
-  import app from '../App';
 
   export default {
-    methods: {
-      pop() {
-        console.log(this.pageStack);
-        this.pageStack.pop();
-      } 
+    data() {
+      return {
+        
+      }
     },
-    props: ['pageStack'],
+    methods: {
+      searchMovies() {
+
+      }
+    },
+    props: [ 'movieID' ],
     components: { customToolbar }
   }
 </script>
