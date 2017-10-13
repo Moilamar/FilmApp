@@ -1,6 +1,7 @@
 // Vue imports
 import Vue from 'vue';
 import VueOnsen from 'vue-onsenui';
+import Vuetify from 'vuetify';
 
 // Onsen imports
 import 'onsenui';
@@ -14,6 +15,7 @@ require('./style.scss');
 import { store } from './store';
 
 Vue.use(VueOnsen);
+Vue.use(Vuetify);
 
 // Root Vue instance
 new Vue({

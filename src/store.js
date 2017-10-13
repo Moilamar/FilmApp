@@ -1,12 +1,12 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
+import Vuex from 'vuex';
 
 import mainPage from './components/MainPage';
 import infoPage from './components/InfoPage';
 import listMoviesPage from './components/ListMoviesPage';
 import searchPage from './components/SearchPage';
+
+Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {

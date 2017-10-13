@@ -5,32 +5,21 @@
       <ons-icon v-if="this.searching" size="150px" spin icon="md-spinner"></ons-icon>
     </div>
     <div id="main-bottom">
-      <form class="center" @submit.prevent="initSearch()">
-        <v-ons-search-input modifier="material" float name="search" placeholder="Search movies" 
-        @keyup.enter="submit" v-model="searchParam"></v-ons-search-input>
-      </form>
-      <div id="main-menu">
-        <v-ons-row>
-          <v-ons-col/>
-          <v-ons-col><v-ons-button @click="push(2)"></v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button @click="push(2)"></v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button @click="push(3)"></v-ons-button></v-ons-col>
-          <v-ons-col/>
-        </v-ons-row>
-        <v-ons-row>
-          <v-ons-col/>
-          <v-ons-col><v-ons-button @click="push(4)"></v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button @click="push(5)"></v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button @click="push(6)"></v-ons-button></v-ons-col>
-          <v-ons-col/>
-        </v-ons-row>
-      </div>
+      <search-field/>     <!-- Imported component -->
+      <main-menu/>  <!-- Imported component -->
     </div>
   </v-ons-page>
 </template>
 
 <script>
   import customToolbar from './CustomToolbar';
+  import mainMenu from './MainMenu';
+  import Vue from 'Vue';
+  import searchField from './SearchField';
+
+  Vue.component('main-menu', mainMenu);
+  Vue.component('search-field', searchField);
+
   let axios = require('axios');
 
   export default {
@@ -64,6 +53,6 @@
       }
     },
     props: [ 'pageStack'],
-    components: { customToolbar }
+    components: { customToolbar, mainMenu }
   }
 </script>
