@@ -13,7 +13,6 @@
 
   export default {
     data() {
-      console.log(this.$store.state.movieList);
       return {
         
       }
