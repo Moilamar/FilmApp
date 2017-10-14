@@ -1,7 +1,8 @@
 
 // Variables
 
-$red: #DB4A4A;
+//$red: #DB4A4A;
+$red: #F44336;
 
 // Mixins
 
@@ -13,7 +14,7 @@ $red: #DB4A4A;
         margin-left: 15px;
     }
     .toolbar__title {
-        color: white;
+        color: #FFEBEE;
     }
 }
 
@@ -26,7 +27,7 @@ $red: #DB4A4A;
 @media all and (orientation:portrait) {
     #banner {
         background:#333;
-        height: 35%;
+        height: 33%;
         width: 100vw;
         background: url('./media/logo.svg');
         background-size: 100% 100%;
@@ -41,7 +42,7 @@ $red: #DB4A4A;
 
     #main-bottom {
         background: $red;
-        height: 65%;
+        height: 62.5%;
         width: 100vw;
         -webkit-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
         -moz-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
@@ -63,7 +64,7 @@ $red: #DB4A4A;
                     width: 18vw;
                     height: 18vw;
                     border-radius: 9vw;
-                    background: white;
+                    background: #FFEBEE;
                     display: block;
                     margin: 0 auto;
                 }

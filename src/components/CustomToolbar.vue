@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="marginBottom:6%">
     <v-ons-splitter>
     <v-ons-splitter-side
       swipeable width="150px" collapse="" side="left"
@@ -30,8 +30,7 @@
   <v-ons-back-button :on-click="pop">{{ backLabel }}</v-ons-back-button>
     <div class="left">
       <ons-icon @click="toggleMenu()" size="2x" icon="ion-navicon, material:md-menu"></ons-icon>
-      </div>
-      
+      </div>      
     <div class="center"><slot></slot></div>
   </v-ons-toolbar>
   </div>
