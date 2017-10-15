@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import VueOnsen from 'vue-onsenui';
 import Vuetify from 'vuetify';
+import VueYouTubeEmbed from 'vue-youtube-embed'
 
 // Onsen imports
 import 'onsenui';
@@ -16,6 +17,7 @@ import { store } from './store';
 
 Vue.use(VueOnsen);
 Vue.use(Vuetify);
+Vue.use(VueYouTubeEmbed);
 
 // Root Vue instance
 new Vue({

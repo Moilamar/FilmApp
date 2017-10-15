@@ -3,9 +3,15 @@
         <div class="left">
           <img class="list-item__thumbnail" :src="imageUrl">
         </div>
-        <div class="center">
-          <span class="list-item__title">{{ movie.title }}</span><span class="list-item__subtitle">{{ shortOverview }}</span>
-        </div>
+        <ons-row class="center">
+          <ons-col>
+            <span class="list-item__title">{{ movie.title }}</span>
+            <span class="list-item__subtitle">{{ shortOverview }}</span>
+          </ons-col>
+          <ons-col>
+            <!-- rating, something else? -->
+          </ons-col>
+        </ons-row>
         <!-- also show rating, year -->
       </v-ons-list-item>
 </template>
@@ -31,6 +37,7 @@
       openInfoPage() {
         this.$store.commit('setMovie', this.movie);
         this.$store.commit('pushPageStack', 2);
+        return;
       }
     },
     props: [ 'movie' ]

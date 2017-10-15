@@ -9,9 +9,9 @@
         </v-ons-row>
         <v-ons-row>
           <v-ons-col/>
-          <v-ons-col><v-ons-button modifier="material" @click="push(5)">Recommended</v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button modifier="material" @click="push(6)">Custom Lists</v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button modifier="material" @click="push(7)">Settings</v-ons-button></v-ons-col>
+          <v-ons-col><v-ons-button modifier="material" @click="push(6)">Recommended</v-ons-button></v-ons-col>
+          <v-ons-col><v-ons-button modifier="material" @click="push(7)">Custom Lists</v-ons-button></v-ons-col>
+          <v-ons-col><v-ons-button modifier="material" @click="push(8)">Settings</v-ons-button></v-ons-col>
           <v-ons-col/>
         </v-ons-row>
       </div>

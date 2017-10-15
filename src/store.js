@@ -1,25 +1,36 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+// Pages
 import mainPage from './components/MainPage';
 import infoPage from './components/InfoPage';
 import listMoviesPage from './components/ListMoviesPage';
 import searchPage from './components/SearchPage';
+import settingsPage from './components/SettingsPage';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+  // Initial state
   state: {
     pageStack: [mainPage],
     openSide: false,
     searchParam: "",
     isSearching: false,
     movieList: [],
-    movie: "test"
+    movie: "test",
+    settings: {
+      adultFilter: false,
+      allowNotifications: true,
+      allowSocialMedia: true,
+      resultsPerPage: 10,
+      muteSounds: true,
+      language: "english",
+      region: "worldwide"
+    }
   },
   getters: {
     getDecodedUrl: state => {
-      console.log("Getting url: " + state.searchParam);
       return decodeURIComponent(state.searchParam.replace(/\+/g, ' '));
     }
   },
@@ -36,9 +47,10 @@ export const store = new Vuex.Store({
           case 2: state.pageStack.push(infoPage); break;
           case 3: state.pageStack.push(listMoviesPage); break;
           case 4: state.pageStack.push(searchPage); break;
-          case 5: state.pageStack.push("recommendations"); break;
-          case 6: state.pageStack.push("favorites"); break;
-          case 7: state.pageStack.push("hot"); break;
+          case 5: state.pageStack.push(settingsPage); break;
+          case 6: state.pageStack.push("recommendations"); break;
+          case 7: state.pageStack.push("favorites"); break;
+          case 8: state.pageStack.push("hot"); break;
           default: console.log("Error: Cannot find page."); break;
       }
       state.isSearching = false;

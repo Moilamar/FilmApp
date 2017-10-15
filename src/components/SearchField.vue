@@ -14,24 +14,28 @@ export default {
             searchParam: ""
         }
     },
+    computed: {
+        searchQueryUrl: function() {
+            return "https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query="+this.searchParam+"&page=1&include_adult=false";
+        }
+    },
     methods: {
         getSearchQueryUrl() {
-            return "https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query="+this.searchParam+"&page=1&include_adult=false";
+            return;
         },
         searchMovies() {
         if (this.searchParam.length > 2) {
             this.$store.commit('setSearchParam', this.searchParam);
             const callback = (movieList) => { 
                 this.$store.commit('setMovieList', movieList);
-                this.$store.commit('pushPageStack', 4); 
+                this.$store.commit('pushPageStack', 4);
+                return;
             }
-            axios.get(this.getSearchQueryUrl())    
+            axios.get(this.searchQueryUrl)    
                 .then(function (response) { // Success promise
                     console.log(response);
                     if (response.status == 200 && response.data.results.length) {
-                        console.log("Before");
                         callback(response.data.results);
-                        console.log("After callback");
                     }
                     else return;
                 })

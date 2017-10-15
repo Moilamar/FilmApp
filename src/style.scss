@@ -10,11 +10,23 @@ $red: #F44336;
 
 .toolbar {
     background: $red;
+    -webkit-box-shadow: 2px 2px 30px 2px rgba(23,23,23,1);
+    -moz-box-shadow: 2px 2px 30px 2px rgba(23,23,23,1);
+    box-shadow: 2px 2px 30px 2px rgba(23,23,23,1);
+    ons-back-button {
+        color: white;
+    }
     .left {
         margin-left: 15px;
     }
     .toolbar__title {
         color: #FFEBEE;
+    }
+    .right {
+        .ion-gear-b {
+            color: white;
+            margin-right: 7px;
+        }
     }
 }
 
@@ -30,7 +42,7 @@ $red: #F44336;
         .list-item__thumbnail {
             height: 10vh;
             width: auto;
-            border-radius: 3px;
+            border-radius: 2px;
         }
     }
     .list-item__center {
@@ -42,7 +54,7 @@ $red: #F44336;
 @media all and (orientation:portrait) {
     #banner {
         background:#333;
-        height: 33%;
+        height: 32.5%;
         width: 100vw;
         background: url('./media/logo.svg');
         background-size: 100% 100%;
@@ -53,6 +65,34 @@ $red: #F44336;
             top: 25%;
             transform: translateY(-50%); 
         }
+    }
+
+    #movie-top {
+        width: 100vw;
+        height: 8vh;
+        background: white;
+        color: #333;
+        ons-icon {
+            
+        }
+    }
+    #movie-main {
+        width: 100vw;
+        height: 40vh;
+        background: #333;
+        color: white;
+        h1 {
+
+        }
+        #poster-big {
+            margin-left: 40px;
+            margin-top: -40px;
+        }
+    }
+    #movie-info {
+        width: 100vw;
+        height: auto;
+        background: white;
     }
 
     #main-bottom {
