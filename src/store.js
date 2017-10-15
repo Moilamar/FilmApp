@@ -14,7 +14,8 @@ export const store = new Vuex.Store({
     openSide: false,
     searchParam: "",
     isSearching: false,
-    movieList: []
+    movieList: [],
+    movie: "test"
   },
   getters: {
     getDecodedUrl: state => {
@@ -35,6 +36,9 @@ export const store = new Vuex.Store({
           case 2: state.pageStack.push(infoPage); break;
           case 3: state.pageStack.push(listMoviesPage); break;
           case 4: state.pageStack.push(searchPage); break;
+          case 5: state.pageStack.push("recommendations"); break;
+          case 6: state.pageStack.push("favorites"); break;
+          case 7: state.pageStack.push("hot"); break;
           default: console.log("Error: Cannot find page."); break;
       }
       state.isSearching = false;
@@ -51,6 +55,9 @@ export const store = new Vuex.Store({
     },
     startSearch(state) {
       state.isSearching = true;
+    },
+    setMovie(state, movie) {
+      state.movie = movie;
     }
   }
 });

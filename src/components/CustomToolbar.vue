@@ -3,7 +3,7 @@
     <v-ons-splitter>
     <v-ons-splitter-side
       swipeable width="150px" collapse="" side="left"
-      :open.sync="this.$store.state.openSide">
+      :open.sync="$store.state.openSide">
       <v-ons-page>
         <!--
         <v-ons-list>
@@ -27,9 +27,9 @@
 
 
   <v-ons-toolbar modifier="android">
-  <v-ons-back-button :on-click="pop">{{ backLabel }}</v-ons-back-button>
+    <v-ons-back-button :on-click="pop">{{ backLabel }}</v-ons-back-button>
     <div class="left">
-      <ons-icon @click="toggleMenu()" size="2x" icon="ion-navicon, material:md-menu"></ons-icon>
+      <ons-icon @click="toggleMenu()" size="2x" icon="ion-navicon-round, material:md-menu"></ons-icon>
       </div>      
     <div class="center"><slot></slot></div>
   </v-ons-toolbar>

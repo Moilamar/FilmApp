@@ -18,9 +18,24 @@ $red: #F44336;
     }
 }
 
-.ion-navicon {
-    
+.ion-navicon-round {
     color: white;
+}
+
+.list-item {
+    
+    .list-item__left {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        .list-item__thumbnail {
+            height: 10vh;
+            width: auto;
+            border-radius: 3px;
+        }
+    }
+    .list-item__center {
+        
+    }
 }
 
 // Portrait screen layout

@@ -1,12 +1,12 @@
 <template>
-  
-      <v-ons-list-item>
+      <v-ons-list-item @click="openInfoPage">
         <div class="left">
-          <img class="list-item__thumbnail" src="http://placekitten.com/g/50/50">
+          <img class="list-item__thumbnail" :src="imageUrl">
         </div>
         <div class="center">
-          <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">On the Internet</span>
+          <span class="list-item__title">{{ movie.title }}</span><span class="list-item__subtitle">{{ shortOverview }}</span>
         </div>
+        <!-- also show rating, year -->
       </v-ons-list-item>
 </template>
 
@@ -19,9 +19,20 @@
         
       }
     },
-    methods: {
-      
+    computed: {
+      imageUrl: function() {
+        return "http://image.tmdb.org/t/p/w92/"+this.movie.poster_path;
+      },
+      shortOverview: function() {
+        return this.movie.overview.substring(0, 50) + "...";
+      }
     },
-    components: {  }
+    methods: {
+      openInfoPage() {
+        this.$store.commit('setMovie', this.movie);
+        this.$store.commit('pushPageStack', 2);
+      }
+    },
+    props: [ 'movie' ]
   }
 </script>
