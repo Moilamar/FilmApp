@@ -75,7 +75,6 @@
     },
     mounted() {
       this.getTrailer();
-      return;
     }, 
     computed: {
       imageUrl: function() {
