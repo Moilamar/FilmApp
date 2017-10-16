@@ -16,7 +16,6 @@
 
 <script>
 import sideMenu from './SideMenu';
-import settingsPage from './SettingsPage';
 
 export default {
   methods: {
@@ -24,7 +23,7 @@ export default {
       this.$store.commit('toggleSideSplitter');
     },
     openSettings() {
-      this.$store.commit('pushPageStack', settingsPage);
+      this.$store.commit('pushPageStack', 2);
     }
   },
   props: ['pop','backLabel'],

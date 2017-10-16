@@ -5,10 +5,10 @@
             :open.sync="$store.state.openSide">
             <v-ons-page>
             <v-ons-list>
-                <v-ons-list-item v-for="(page,iter) in labels"
+                <v-ons-list-item v-for="(page,iter) in pages"
                     tappable modifier="chevron" v-bind:key=iter
-                    @click="changePage(page)">
-                    <div class="center">{{labels[iter]}}</div>
+                    @click="changePage(page[1])">
+                    <div class="center">{{page[0]}}</div>
                 </v-ons-list-item>
             </v-ons-list>
             </v-ons-page>
@@ -23,31 +23,17 @@
 </template>
 
 <script>
-// Pages
-/* import listMoviesPage from './ListMoviesPage';
-import searchPage from './SearchPage'; 
-import settingsPage from './SettingsPage';
-import toWatchPage from './ToWatchPage';
-import favoritesPage from './FavoritesPage';
-import recommendationsPage from './RecommendationsPage';  */
-
 export default {
     data() {
         return {
-            /* pages: [
-                listMoviesPage,
-                toWatchPage,
-                favoritesPage,
-                recommendationsPage,
-                settingsPage
-            ], */
-            labels: [
-                "Watched Movies",
-                "To-Watch List",
-                "My Favorites",
-                "Recommendations",
-                "Settings"
-            ]
+            pages: this.$store.state.pages,
+            pages: [ // Label and page index
+                ["Watched Movies", 10],
+                ["To-Watch List", 10],
+                ["My Favorites", 10],
+                ["Recommendations", 10],
+                ["Settings", 2]
+            ],
         }
     },
     methods: {

@@ -10,30 +10,19 @@
         <v-ons-row>
           <v-ons-col/>
           <v-ons-col><v-ons-button modifier="material" ripple @click="push()">Recommended</v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button modifier="material" ripple @click="push(7)">Custom Lists</v-ons-button></v-ons-col>
-          <v-ons-col><v-ons-button modifier="material" ripple @click="push(settingsPage)">Settings</v-ons-button></v-ons-col>
+          <v-ons-col><v-ons-button modifier="material" ripple @click="push()">Custom Lists</v-ons-button></v-ons-col>
+          <v-ons-col><v-ons-button modifier="material" ripple @click="push(2)">Settings</v-ons-button></v-ons-col>
           <v-ons-col/>
         </v-ons-row>
       </div>
 </template>
 
 <script>
-// Pages
-import listMoviesPage from './ListMoviesPage';
-import searchPage from './SearchPage';
-import settingsPage from './SettingsPage';
-import toWatchPage from './ToWatchPage';
-import favoritesPage from './FavoritesPage';
 
 export default {
   data() {
     return {
-      listMoviesPage,
-      searchPage,
-      settingsPage,
-      toWatchPage,
-      favoritesPage,
-      settingsPage
+
     }
   },
   methods: {

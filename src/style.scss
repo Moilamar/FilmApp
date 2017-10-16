@@ -39,12 +39,14 @@ $red: #F44336;
 }
 
 .list-item {
-    
+    height: 12vh;
+    padding-top: 3px;
+    padding-bottom: 3px;
     .list-item__left {
-        padding-top: 3px;
-        padding-bottom: 3px;
+        height: 100%;
+        width: 12vh;
         .list-item__thumbnail {
-            height: 10vh;
+            height: 11vh;
             width: auto;
             border-radius: 2px;
         }
@@ -88,7 +90,7 @@ $red: #F44336;
         h1 {
 
         }
-        #poster-big {
+        .poster-big {
             margin-left: 40px;
             margin-top: -40px;
         }

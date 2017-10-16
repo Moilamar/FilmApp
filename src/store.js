@@ -1,9 +1,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-Vue.use(Vuex);
-
+// Pages
 import mainPage from './components/MainPage';
+import infoPage from './components/InfoPage';
+import listMoviesPage from './components/ListMoviesPage';
+import searchPage from './components/SearchPage';
+import settingsPage from './components/SettingsPage';
+import toWatchPage from './components/ToWatchPage';
+import favoritesPage from './components/FavoritesPage';
+import recommendationsPage from './components/RecommendationsPage';
+
+Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   // Initial state
@@ -14,7 +22,7 @@ export const store = new Vuex.Store({
     isSearching: false,
     movieList: [],
     movie: "test",
-    settings: {
+    settings: { // User settings
       adultFilter: false,
       allowNotifications: true,
       allowSocialMedia: true,
@@ -22,7 +30,12 @@ export const store = new Vuex.Store({
       muteSounds: true,
       language: "english",
       region: "worldwide"
-    }
+    },
+    pages: [  // Page array for navigation
+      searchPage,
+      infoPage,
+      settingsPage
+    ],
   },
   getters: {
     getDecodedUrl: state => {
@@ -36,8 +49,8 @@ export const store = new Vuex.Store({
     popPageStack(state) {
       state.pageStack.pop();
     },
-    pushPageStack(state, page) {
-      state.pageStack.push(page);
+    pushPageStack(state, pageIndex) {
+      state.pageStack.push(state.pages[pageIndex]);
       state.isSearching = false;
     },
     setMovieList(state, movieList) {

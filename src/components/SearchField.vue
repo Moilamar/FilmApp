@@ -27,7 +27,7 @@ export default {
             this.$store.commit('setSearchParam', this.searchParam);
             const callback = (movieList) => { 
                 this.$store.commit('setMovieList', movieList);
-                this.$store.commit('pushPageStack', searchPage);
+                this.$store.commit('pushPageStack', 0);
                 return;
             }
             axios.get(this.searchQueryUrl)    

@@ -1,7 +1,7 @@
 <template>
   <v-ons-page>
     <custom-toolbar :back-label="'Back'">{{ movie.title }}</custom-toolbar>
-    <v-ons-row id="movie-top">
+    <v-ons-row class="movie-top">
       <ons-icon size="50px" icon="ion-checkmark-round"></ons-icon>
       <ons-icon size="50px" icon="ion-thumbsup"></ons-icon>
       <ons-icon size="50px" icon="ion-thumbsdown"></ons-icon>    
