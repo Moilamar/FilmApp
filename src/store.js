@@ -36,7 +36,7 @@ export const store = new Vuex.Store({
     popPageStack(state) {
       state.pageStack.pop();
     },
-    pushPageStack(state, page, movieList) {
+    pushPageStack(state, page) {
       state.pageStack.push(page);
       state.isSearching = false;
     },

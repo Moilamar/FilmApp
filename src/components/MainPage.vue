@@ -14,7 +14,6 @@
 <script>
   import customToolbar from './CustomToolbar';
   import mainMenu from './MainMenu';
-  import Vue from 'Vue';
   import searchField from './SearchField';
 
   export default {

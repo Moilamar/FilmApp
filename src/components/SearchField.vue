@@ -22,9 +22,6 @@ export default {
         }
     },
     methods: {
-        getSearchQueryUrl() {
-            return;
-        },
         searchMovies() {
         if (this.searchParam.length > 2) {
             this.$store.commit('setSearchParam', this.searchParam);

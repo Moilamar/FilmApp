@@ -19,11 +19,6 @@ import sideMenu from './SideMenu';
 import settingsPage from './SettingsPage';
 
 export default {
-  data() {
-    return {
-      openSide: false
-    }
-  },
   methods: {
     toggleMenu() {
       this.$store.commit('toggleSideSplitter');
