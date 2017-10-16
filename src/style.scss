@@ -8,6 +8,10 @@ $red: #F44336;
 
 // Styles
 
+* {
+    font-family: Source Sans Pro, sans-serif;
+}
+
 .toolbar {
     background: $red;
     -webkit-box-shadow: 2px 2px 30px 2px rgba(23,23,23,1);
@@ -122,6 +126,7 @@ $red: #F44336;
                     background: #FFEBEE;
                     display: block;
                     margin: 0 auto;
+                    color: black;
                 }
             }
         }

@@ -12,7 +12,6 @@
   export default {
     methods: {
       pop() {
-        console.log(this.pageStack);
         this.pageStack.pop();
       } 
     },

@@ -17,29 +17,29 @@
 </template>
 
 <script>
-  
+import infoPage from './InfoPage';
 
-  export default {
-    data() {
-      return {
-        
-      }
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  computed: {
+    imageUrl: function() {
+      return "http://image.tmdb.org/t/p/w92/"+this.movie.poster_path;
     },
-    computed: {
-      imageUrl: function() {
-        return "http://image.tmdb.org/t/p/w92/"+this.movie.poster_path;
-      },
-      shortOverview: function() {
-        return this.movie.overview.substring(0, 50) + "...";
-      }
-    },
-    methods: {
-      openInfoPage() {
-        this.$store.commit('setMovie', this.movie);
-        this.$store.commit('pushPageStack', 2);
-        return;
-      }
-    },
-    props: [ 'movie' ]
-  }
+    shortOverview: function() {
+      return this.movie.overview.substring(0, 50) + "...";
+    }
+  },
+  methods: {
+    openInfoPage() {
+      this.$store.commit('setMovie', this.movie);
+      this.$store.commit('pushPageStack', infoPage);
+      return;
+    }
+  },
+  props: [ 'movie' ]
+}
 </script>

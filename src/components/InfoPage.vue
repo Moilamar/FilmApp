@@ -46,65 +46,65 @@
   import customToolbar from './CustomToolbar';
   import axios from 'axios';
 
-  export default {
-    data() {
-      return {
-        movie: this.$store.state.movie,
-        videoId: null,
-        tabs: [
-        {
-          icon: this.md() ? null : 'ion-home', label: 'Home', page: homePage,
-          props: { myProp: 'This is a page prop!' }, key: "homePage"
-        },
-        {
-          icon: this.md() ? null : 'ion-ios-bell',
-          label: 'News',
-          page: newsPage,
-          badge: 7,
-          key: "newsPage"
-        },
-        {
-          icon: this.md() ? null : 'ion-ios-settings',
-          label: 'Settings',
-          page: settingsPage,
-          key: "settingsPage"
-        }
-      ],
-        activeIndex: 0
-      }
-    },
-    mounted() {
-      this.getTrailer();
-    }, 
-    computed: {
-      imageUrl: function() {
-        return "http://image.tmdb.org/t/p/w185/"+this.movie.poster_path;
+export default {
+  data() {
+    return {
+      movie: this.$store.state.movie,
+      videoId: null,
+      tabs: [
+      {
+        icon: this.md() ? null : 'ion-home', label: 'Home', page: homePage,
+        props: { myProp: 'This is a page prop!' }, key: "homePage"
       },
-      trailerUrl: function() {
-        return "https://api.themoviedb.org/3/movie/"+this.movie.id+"/videos?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US";
+      {
+        icon: this.md() ? null : 'ion-ios-bell',
+        label: 'News',
+        page: newsPage,
+        badge: 7,
+        key: "newsPage"
+      },
+      {
+        icon: this.md() ? null : 'ion-ios-settings',
+        label: 'Settings',
+        page: settingsPage,
+        key: "settingsPage"
       }
+    ],
+      activeIndex: 0
+    }
+  },
+  mounted() {
+    this.getTrailer();
+  }, 
+  computed: {
+    imageUrl: function() {
+      return "http://image.tmdb.org/t/p/w185/"+this.movie.poster_path;
     },
-    methods: {
-      getTrailer() {
-        const callback = (response) => {
-          console.log(response);
-          this.videoId = response.data;
-        }
-        axios.get(this.trailerUrl)
-          .then(function (response) { // Success promise
-              console.log(response);
-              if (response.status == 200) {
-                  callback(response);
-              }
-              else return;
-          })
-          .catch(function (error) {   // Error caught
-              console.log("ERR: "+error.message);
-              // Show error
-              return;
-          });
+    trailerUrl: function() {
+      return "https://api.themoviedb.org/3/movie/"+this.movie.id+"/videos?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US";
+    }
+  },
+  methods: {
+    getTrailer() {
+      const callback = (response) => {
+        console.log(response);
+        this.videoId = response.data;
       }
-    },
-    components: { customToolbar }
-  }
+      axios.get(this.trailerUrl)
+        .then(function (response) { // Success promise
+            console.log(response);
+            if (response.status == 200) {
+                callback(response);
+            }
+            else return;
+        })
+        .catch(function (error) {   // Error caught
+            console.log("ERR: "+error.message);
+            // Show error
+            return;
+        });
+    }
+  },
+  components: { customToolbar }
+}
 </script>

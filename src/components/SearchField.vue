@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import searchPage from './SearchPage';
+
 let axios = require('axios');
 
 export default {
@@ -28,7 +30,7 @@ export default {
             this.$store.commit('setSearchParam', this.searchParam);
             const callback = (movieList) => { 
                 this.$store.commit('setMovieList', movieList);
-                this.$store.commit('pushPageStack', 4);
+                this.$store.commit('pushPageStack', searchPage);
                 return;
             }
             axios.get(this.searchQueryUrl)    
