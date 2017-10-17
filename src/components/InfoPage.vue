@@ -27,7 +27,6 @@
     <v-ons-row id="movie-info"> <!-- In depth info -->
       <p>{{ movie.overview }}</p>
     </v-ons-row>
-
     
   </v-ons-page>
 </template>
@@ -35,13 +34,10 @@
 <script>
   // ion-close-circled
   // ion-help-circled
-  // ion-gear-b
   // ion-bookmark
   // ion-ribbon-a
   // ion-earth
   // ion-social-twitter/facebook/googleplus
-  // fa-star(-half-full)
-  // ion-chevron-right
   // ion-trash-a
   import customToolbar from './CustomToolbar';
   import axios from 'axios';
