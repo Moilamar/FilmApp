@@ -81,7 +81,9 @@ export default {
       return "http://image.tmdb.org/t/p/w185/"+this.movie.poster_path;
     },
     trailerUrl: function() {
-      return "https://api.themoviedb.org/3/movie/"+this.movie.id+"/videos?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US";
+      return "https://api.themoviedb.org/3/movie/"+this.movie.id+
+        "/videos?api_key="+this.$store.state.apiKey+
+        "&language="+this.$store.state.language[1];
     }
   },
   methods: {

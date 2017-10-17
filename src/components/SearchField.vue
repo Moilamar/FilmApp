@@ -18,7 +18,10 @@ export default {
     },
     computed: {
         searchQueryUrl: function() {
-            return "https://api.themoviedb.org/3/search/movie?api_key=d10678700962ddf56a9a3ef14b38f1df&language=en-US&query="+this.searchParam+"&page=1&include_adult=false";
+            return "https://api.themoviedb.org/3/search/movie?api_key="+this.$store.state.apiKey+
+                "&language="+this.$store.state.settings.language[1]+
+                "&query="+this.searchParam+
+                "&page=1&include_adult="+this.$store.state.settings.adultFilter;
         }
     },
     methods: {

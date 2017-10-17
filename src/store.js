@@ -22,14 +22,15 @@ export const store = new Vuex.Store({
     isSearching: false,
     movieList: [],
     movie: "test",
+    apiKey: "d10678700962ddf56a9a3ef14b38f1df",
     settings: { // User settings
       adultFilter: false,
       allowNotifications: true,
       allowSocialMedia: true,
       resultsPerPage: 10,
-      muteSounds: true,
-      language: "english",
-      region: "worldwide"
+      sounds: true,
+      language: ["English", "en-US"],
+      region: "Worldwide"
     },
     pages: [  // Page array for navigation
       searchPage,
@@ -68,6 +69,9 @@ export const store = new Vuex.Store({
     },
     setMovie(state, movie) {
       state.movie = movie;
+    },
+    applySettings(state, newSettings) {
+      state.settings = newSettings;
     }
   }
 });
