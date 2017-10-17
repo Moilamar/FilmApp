@@ -152,15 +152,18 @@ $red: #F44336;
         #main-menu {
             padding-top: 6vh;
             ons-row {
-                margin-bottom: 20px;
-                ons-col ons-button {
-                    width: 18vw;
-                    height: 18vw;
-                    border-radius: 9vw;
-                    background: #FFEBEE;
-                    display: block;
-                    margin: 0 auto;
-                    color: black;
+                margin-bottom: 3.5vh;
+                margin-left: 12.5vw;
+                ons-col {
+                    ons-button {
+                        width: 22vw;
+                        height: 22vw;
+                        border-radius: 11vw;
+                        background: #FFEBEE;
+                        display: block;
+                        margin: 0 auto;
+                        color: black;
+                    }
                 }
             }
         }
