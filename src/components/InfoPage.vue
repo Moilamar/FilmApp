@@ -85,7 +85,6 @@ export default {
   methods: {
     getTrailer() {
       /* const callback = (response) => {
-        console.log(response);
         this.videoId = response.data;
       }
       axios.get(this.trailerUrl)

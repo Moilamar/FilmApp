@@ -130,7 +130,7 @@ span.list-year {
 @media all and (orientation:portrait) {
     #banner {
         /* background:#333; */
-        height: 32.2vh;
+        height: 37.7vh;
         width: 100vw;
        /*  background: url('./media/logo.svg'); */
         background-size: 100% 100%;
@@ -156,7 +156,7 @@ span.list-year {
         font-size: 150%; color: 
         rgb(255, 255, 255); 
         position: absolute; 
-        bottom: 60vh; 
+        bottom: 56vh; 
         left: 0px; 
         right: 0px;
     }
@@ -201,14 +201,14 @@ span.list-year {
 
     #main-bottom {
         background: $materialRed;
-        height: 62.5vh;
+        height: 60vh;
         width: 100vw;
-        -webkit-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
-        -moz-box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
-        box-shadow: -2px -2px 30px 2px rgba(23,23,23,1);
+        -webkit-box-shadow: -1px -12px 10px 1px rgba(23,23,23,1);
+        -moz-box-shadow: -1px -1px 10px 2px rgba(23,23,23,1);
+        box-shadow: -2px -2px 10px 1px rgba(40,40,40,0.8);
         .center {
             text-align: center;
-            padding-top: 6vw;
+            padding-top: 5vw;
             .search-input {
                 color: #222;
                 margin: 0 auto;
@@ -219,9 +219,8 @@ span.list-year {
                 }
             }
         }
-        
         #main-menu {
-            padding-top: 6vh;
+            padding-top: 4vh;
             ons-row {
                 margin-bottom: 3.5vh;
                 margin-left: 11vw;
@@ -230,7 +229,7 @@ span.list-year {
                         width: 22vw;
                         height: 22vw;
                         border-radius: 1vw;
-                        background: #FFEBEE;
+                        background: white;
                         display: block;
                         margin: 0 auto;
                         color: black;
