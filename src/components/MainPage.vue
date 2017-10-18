@@ -1,8 +1,11 @@
 <template>
   <v-ons-page>
     <custom-toolbar>My Movie List</custom-toolbar>
-    <div id="banner" >
+    <!-- <div id="banner" >
       <ons-icon v-show="$store.state.isSearching" size="150px" spin icon="md-spinner"></ons-icon>
+    </div> -->
+    <div id="banner">
+      <carousel></carousel>
     </div>
     <div id="main-bottom" >
       <search-field></search-field>     <!-- Imported component -->
@@ -15,13 +18,15 @@
   import customToolbar from './CustomToolbar';
   import mainMenu from './MainMenu';
   import searchField from './SearchField';
+  import carousel from './Carousel';
 
   export default {
     props: [ 'pageStack'],
     components: { 
       customToolbar, 
       mainMenu, 
-      searchField 
+      searchField,
+      carousel
     }
   }
 </script>

@@ -1,14 +1,14 @@
 <template>
     <div id="main-menu">
         <v-ons-row>
-          <v-ons-col width="25vw"><v-ons-button modifier="material" ripple @click="push()">Watched Movies</v-ons-button></v-ons-col>
-          <v-ons-col width="25vw"><v-ons-button modifier="material" ripple @click="push()">To-Watch</v-ons-button></v-ons-col>
-          <v-ons-col width="25vw"><v-ons-button modifier="material" ripple @click="push()">Favorites</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">Watched Movies</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">To-Watch</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">Favorites</v-ons-button></v-ons-col>
         </v-ons-row>
         <v-ons-row>
-          <v-ons-col width="25vw"><v-ons-button modifier="material" ripple @click="push()">Recommended</v-ons-button></v-ons-col>
-          <v-ons-col width="25vw"><v-ons-button modifier="material" ripple @click="push()">Custom Lists</v-ons-button></v-ons-col>
-          <v-ons-col width="25vw"><v-ons-button modifier="material" ripple @click="push(2)">Settings</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">Recommended</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">Hot Movies</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push(2)">In Theaters</v-ons-button></v-ons-col>
         </v-ons-row>
       </div>
 </template>

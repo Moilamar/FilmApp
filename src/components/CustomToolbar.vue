@@ -1,15 +1,17 @@
 <template>
-  <div style="marginBottom:5.3vh">
+  <div style="marginBottom:44px">
     <side-menu></side-menu> <!-- Splitter sidebar -->
     <v-ons-toolbar modifier="android">
       
-      <div class="left"><v-ons-back-button :on-click="pop">{{ backLabel }}</v-ons-back-button>
-        <ons-icon @click="toggleMenu()" size="2x" icon="ion-navicon, material:md-menu"></ons-icon>
+      <div class="left">
+        <v-ons-back-button :on-click="pop">{{ backLabel }}</v-ons-back-button>
+        
       </div>      
       <div class="center"><slot></slot></div>
-      <div class="right">
-        <ons-icon @click="openSettings()" size="2x" icon="ion-gear-b"></ons-icon>
-      </div>
+       <div class="right">
+        <ons-icon @click="toggleMenu()" size="2x" icon="ion-navicon, material:md-menu"></ons-icon>
+        <!--<ons-icon @click="openSettings()" size="2x" icon="ion-gear-b"></ons-icon>-->
+      </div> 
     </v-ons-toolbar>
   </div>
 </template>

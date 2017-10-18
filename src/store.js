@@ -21,7 +21,7 @@ export const store = new Vuex.Store({
     searchParam: "",
     isSearching: false,
     movieList: [],
-    movie: "test",
+    movie: null,
     apiKey: "d10678700962ddf56a9a3ef14b38f1df",
     settings: { // User settings
       adultFilter: false,

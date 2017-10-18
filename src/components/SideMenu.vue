@@ -1,7 +1,7 @@
 <template>
     <v-ons-splitter style="marginTop:44px;">
         <v-ons-splitter-side
-            swipeable width="" collapse="" side="left"
+            swipeable width="" collapse="" side="right"
             :open.sync="$store.state.openSide">
             <v-ons-page>
             <v-ons-list>
