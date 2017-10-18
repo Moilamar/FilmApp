@@ -38,6 +38,12 @@ new Vue({
         language: ["English", "en-US"],
         region: "Worldwide"
       }
+    },
+    watchedMovies: {
+      type: []
+    },
+    toWatchMovies: {
+      type: []
     }
   },
   components:{App},
