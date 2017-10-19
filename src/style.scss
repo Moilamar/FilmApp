@@ -130,7 +130,7 @@ span.list-year {
 @media all and (orientation:portrait) {
     #banner {
         /* background:#333; */
-        height: 37.7vh;
+        height: 63vh;
         width: 100vw;
        /*  background: url('./media/logo.svg'); */
         background-size: 100% 100%;
@@ -142,21 +142,27 @@ span.list-year {
             transform: translateY(-50%); 
         }  */
         #carousel {
-            width: 100%;
+            width: 100vw;
             height: 100%;
             ons-carousel {
-                width: 100%;
+                width: 100vw;
                 height: 100%;
                 
             }
         }
+        .carousel-item {
+            
+        }
+        .carousel-img {
+            height: 100%;
+        }
     }
     .dots {
         text-align: center; 
-        font-size: 150%; color: 
+        font-size: 200%; color: 
         rgb(255, 255, 255); 
         position: absolute; 
-        bottom: 56vh; 
+        bottom: 31vh;
         left: 0px; 
         right: 0px;
     }

@@ -1,9 +1,10 @@
 <template>
     <div id="carousel">
-        <v-ons-carousel swipeable auto-scroll overscrollable event.direction="left"
-        :index.sync="carouselIndex" >
-            <v-ons-carousel-item v-for="(value, key) in carouselItems" :key="key">
-                <img :src="getImageUrl(key)" />
+        <v-ons-carousel swipeable auto-scroll overscrollable :index.sync="carouselIndex" centered
+        :postchange="indexChanged()" auto-scroll-ratio="0.5" 
+        direction="horizontal" item-width="73%" options.animationOptions="{ duration: 3, timing: 'ease-in' }">
+            <v-ons-carousel-item class="carousel-item" v-for="(movie, key) in carouselItems" :key="key">
+                <img class="carousel-img" :src="getImageUrl(key)" @click="toMoviePage(movie,key,carouselIndex)"/>
             </v-ons-carousel-item>
         </v-ons-carousel>
 
@@ -25,7 +26,9 @@ export default {
             carouselItems: [],
             carouselIndex: 0,
             dotIndex: 1,
-            ready: false
+            ready: false,
+            timer: setInterval(this.nextItem, 6000),
+            allowClick: true
         }
     },
     computed: {
@@ -37,14 +40,18 @@ export default {
     mounted() {
         if (this.ready) return;
         else this.getCurrentMovies();
+        
     },
     methods: {
-        getImageUrl(index) {
-            return "http://image.tmdb.org/t/p/w185/"+this.carouselItems[index].poster_path;
+        indexChanged() { // Start timer again after user interaction
+            
+            clearInterval(this.timer);
         },
-        nextCarouselItem() {
-            carouselIndex++;
-            console.log(carouselIndex);
+        getImageUrl(index) {
+            return "http://image.tmdb.org/t/p/w342/"+this.carouselItems[index].poster_path;
+        },
+        nextItem() {
+            this.carouselIndex = (this.carouselIndex >= 4 ? 0 : this.carouselIndex + 1);
         },
         getCurrentMovies() {
             const callback = (response) => {
@@ -64,6 +71,12 @@ export default {
                     // Show error
                     return;
                 });
+        },
+        toMoviePage(movie,index,crntIndex) {
+            if (this.allowClick && index == crntIndex) {
+                this.$store.commit('setMovie', movie);
+                this.$store.commit('pushPageStack', 1);
+            }
         }
     }
 }

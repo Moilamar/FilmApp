@@ -4,17 +4,17 @@ import Vuex from 'vuex';
 // Pages
 import mainPage from './components/MainPage';
 import infoPage from './components/InfoPage';
-import WatchedMoviesPage from './components/WatchedMoviesPage';
+import watchedMoviesPage from './components/WatchedMoviesPage';
 import searchPage from './components/SearchPage';
 import settingsPage from './components/SettingsPage';
 import toWatchPage from './components/ToWatchPage';
 import favoritesPage from './components/FavoritesPage';
-import recommendationsPage from './components/RecommendationsPage';
+import recommendedPage from './components/RecommendedPage';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  // Initial state
+  // Initial state-
   state: {
     pageStack: [mainPage],
     openSide: false,
@@ -35,7 +35,10 @@ export const store = new Vuex.Store({
     pages: [  // Page array for navigation
       searchPage,
       infoPage,
-      settingsPage
+      settingsPage,
+      watchedMoviesPage,
+      toWatchPage,
+      recommendedPage, 
     ],
   },
   getters: {

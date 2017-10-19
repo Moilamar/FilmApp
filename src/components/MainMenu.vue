@@ -8,7 +8,7 @@
         <v-ons-row>
           <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">Recommended</v-ons-button></v-ons-col>
           <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">Hot Movies</v-ons-button></v-ons-col>
-          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push(2)">In Theaters</v-ons-button></v-ons-col>
+          <v-ons-col width="26vw"><v-ons-button modifier="material" ripple @click="push()">In Theaters</v-ons-button></v-ons-col>
         </v-ons-row>
       </div>
 </template>
