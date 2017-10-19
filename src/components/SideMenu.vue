@@ -1,6 +1,7 @@
 <template>
-    <v-ons-splitter style="marginTop:44px;">
-        <v-ons-splitter-side
+    <v-ons-splitter style="marginTop:44px;z-index:10000;pointer-events:none;position:fixed;">
+        
+        <v-ons-splitter-side style="pointer-events:auto;"
             swipeable width="" collapse="" side="right"
             :open.sync="$store.state.openSide">
             <v-ons-page>
@@ -26,7 +27,6 @@
 export default {
     data() {
         return {
-            pages: this.$store.state.pages,
             pages: [ // Label and page index
                 ["Watched Movies", 10],
                 ["To-Watch List", 10],
@@ -38,9 +38,10 @@ export default {
     },
     methods: {
         changePage(page) {
-            //currentPage = page; 
             this.$store.commit('toggleSideSplitter');
-            this.$store.commit('pushPageStack', page);
+            if (this.$store.state.crntPage != page) {
+                this.$store.commit('pushPageStack', page);
+            }
         }
     }
 }

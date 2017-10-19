@@ -1,12 +1,12 @@
 <template>
-  <div style="marginBottom:44px">
+  <div style="marginBottom:7.2vh">
     <side-menu></side-menu> <!-- Splitter sidebar -->
     <v-ons-toolbar modifier="android">
       
       <div class="left">
-        <v-ons-back-button :on-click="pop">{{ backLabel }}</v-ons-back-button>
-        
-      </div>      
+        <v-ons-back-button @click="pop()">{{ backLabel }}</v-ons-back-button>
+      </div>   
+         
       <div class="center"><slot></slot></div>
        <div class="right">
         <ons-icon @click="toggleMenu()" size="2x" icon="ion-navicon, material:md-menu"></ons-icon>
@@ -22,13 +22,14 @@ import sideMenu from './SideMenu';
 export default {
   methods: {
     toggleMenu() {
+      console.log("viddu");
       this.$store.commit('toggleSideSplitter');
     },
-    openSettings() {
-      this.$store.commit('pushPageStack', 2);
+    pop() {
+      this.$store.commit('popPageStack');
     }
   },
-  props: ['pop','backLabel'],
+  props: ['backLabel'],
   components: { sideMenu }
 }
 </script>

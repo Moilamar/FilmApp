@@ -3,7 +3,7 @@
         <v-ons-row>
           <v-ons-col width="26vw">
             <v-ons-button modifier="material" ripple @click="push(3)">
-              <img class="btn-img" src="../media/my_movies.svg"/>
+              <img class="btn-img" src="../media/my_movies_red.svg"/>
               <p>My Movies</p>
             </v-ons-button>
           </v-ons-col>

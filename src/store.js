@@ -21,8 +21,8 @@ export const store = new Vuex.Store({
   state: {
     pageStack: [mainPage],
     openSide: false,
+    crntPage: 20,
     searchParam: "",
-    isSearching: false,
     movieList: [],
     movie: null,
     apiKey: "d10678700962ddf56a9a3ef14b38f1df",
@@ -51,6 +51,9 @@ export const store = new Vuex.Store({
   getters: {
     getDecodedUrl: state => {
       return decodeURIComponent(state.searchParam.replace(/\+/g, ' '));
+    },
+    getCrntPage: state => {
+      return state.pageStack[state.pageStack.length -1];
     }
   },
   mutations: {
@@ -62,7 +65,7 @@ export const store = new Vuex.Store({
     },
     pushPageStack(state, pageIndex) {
       state.pageStack.push(state.pages[pageIndex]);
-      state.isSearching = false;
+      state.crntPage = pageIndex;
     },
     setMovieList(state, movieList) {
       state.movieList = movieList;
@@ -73,9 +76,6 @@ export const store = new Vuex.Store({
     setSearchParam(state, searchParam) {
       searchParam = encodeURI(searchParam);
       state.searchParam = searchParam;
-    },
-    startSearch(state) {
-      state.isSearching = true;
     },
     setMovie(state, movie) {
       state.movie = movie;

@@ -12,7 +12,7 @@
 
     <v-ons-list-item>
       <label>Movie Info Language</label>
-      <div class="right"><v-ons-select modifier="" style="width: 40%" v-model="settings.language">
+      <div class="right"><v-ons-select modifier="" style="width: 40%" v-model="settings.language[1]">
         <option v-for="(language, index) in languages" :name="language" :key="index">
           {{ languages[index][0] }}
         </option>
@@ -21,7 +21,7 @@
 
     <v-ons-list-item>
       <label>Regional Info</label>
-      <div class="right"><v-ons-select style="width: 40%" v-model="settings.selectedRegion">
+      <div class="right"><v-ons-select style="width: 40%" v-model="settings.region">
         <option v-for="(region, index) in regions" :name="region" :key="index">
           {{ regions[index] }}
         </option>

@@ -4,6 +4,7 @@ import VueOnsen from 'vue-onsenui';
 import Vuetify from 'vuetify';
 import VueYouTubeEmbed from 'vue-youtube-embed';
 import VueLocalStorage from 'vue-localstorage';
+import VueBus from 'vue-bus';
 
 // Onsen imports
 import 'onsenui';
@@ -20,6 +21,7 @@ Vue.use(VueOnsen);
 Vue.use(Vuetify);
 Vue.use(VueYouTubeEmbed);
 Vue.use(VueLocalStorage);
+Vue.use(VueBus);
 
 // Root Vue instance
 new Vue({

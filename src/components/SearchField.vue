@@ -28,27 +28,27 @@ export default {
         searchMovies() {
         if (this.searchParam.length > 2) {
             this.$store.commit('setSearchParam', this.searchParam);
-            const callback = (movieList) => { 
-                this.$store.commit('setMovieList', movieList);
-                this.$store.commit('pushPageStack', 0);
-                return;
-            }
-            axios.get(this.searchQueryUrl)    
+            axios.get(this.searchQueryUrl)    // Async GET for movies
                 .then(function (response) { // Success promise
                     console.log(response);
-                    if (response.status == 200 && response.data.results.length) {
-                        callback(response.data.results);
+                    if (response.status == 200 && response.data.results.length) {   // Async call OK
+                        this.$store.commit('setMovieList', response.data.results);
+                        this.$store.commit('pushPageStack', 0);
+                        return;
+                    } else {
+                        this.$ons.notification.toast("No results.");    // No results found
+                        return;
                     }
-                    else return;
-                })
+                }.bind(this))
                 .catch(function (error) {   // Error caught
                     console.log("ERR: "+error.message);
-                    // Show error
+                    this.$ons.notification.toast("An error occured.");
                     return;
-                });
-                this.$store.commit('startSearch');  // Show loading icon asynchronously
+                }.bind(this));
+            this.$bus.emit("loading");
         }
       }
-    }
+    },
+    props: ['showLoading']
 }
 </script>
