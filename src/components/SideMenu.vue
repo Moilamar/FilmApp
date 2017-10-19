@@ -1,5 +1,5 @@
 <template>
-    <v-ons-splitter style="marginTop:44px;z-index:10000;pointer-events:none;position:fixed;">
+    <v-ons-splitter style="marginTop:7.1vh;z-index:10000;pointer-events:none;position:fixed;">
         
         <v-ons-splitter-side style="pointer-events:auto;"
             swipeable width="" collapse="" side="right"

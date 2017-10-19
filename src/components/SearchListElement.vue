@@ -6,13 +6,13 @@
       <img v-else class="list-item__thumbnail" src="../media/placeholder.jpg"> 
     </div>
     <div class="center">
-      <ons-col width="52vw">
+      <ons-col width="47vw">
         <span class="list-item__title">{{ shortTitle }}
           <span class="list-year">({{ releaseYear }})</span>
         </span>
-        <ons-row><span class="list-item__subtitle">{{ shortOverview }}</span></ons-row>
+        <ons-row><span class="list-item__subtitle">{{ genreNames }}</span></ons-row>
       </ons-col>
-      <ons-col style="marginLeft:1.5vw;">
+      <ons-col style="marginLeft:1vw;">
         <ons-row>
           <ons-icon icon="fa-star" size="5vw"></ons-icon>
           <span class="list-score">{{ movie.vote_average }}</span>
@@ -23,7 +23,6 @@
     <div class="right">
       <div class="circle"><ons-icon icon="ion-chevron-right" size="3.1vw"></ons-icon></div>
     </div>
-    <!-- genres? -->
   </v-ons-list-item>
 </template>
 
@@ -31,8 +30,12 @@
 export default {
   data() {
     return {
-      
+      genreNames: "",
+      genres: this.$store.state.genres
     }
+  },
+  mounted() {
+    this.getGenreNames();
   },
   computed: {
     releaseYear: function() {
@@ -45,10 +48,16 @@ export default {
       return this.movie.overview.substring(0, 60) + "...";
     },
     shortTitle: function() {
-      return this.movie.title.length < 25 ? this.movie.title : this.movie.title.substring(0,25) + "...";
+      return this.movie.title.length < 25 ? this.movie.title : this.movie.title.substring(0,23) + "...";
     }
   },
   methods: {
+    getGenreNames() { // Transform genre ids into names
+      for(var i=0; i<this.movie.genre_ids.length; i++) {
+        this.genreNames += this.genres[this.movie.genre_ids[i]] + ", ";
+      }
+      this.genreNames = this.genreNames.substring(0, this.genreNames.length - 2);
+    },
     openInfoPage() {
       this.$store.commit('setMovie', this.movie);
       this.$store.commit('pushPageStack', 1);

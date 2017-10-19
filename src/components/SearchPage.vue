@@ -2,7 +2,7 @@
   <v-ons-page>
     <custom-toolbar :back-label="'Back'">Search</custom-toolbar>
     <div v-if="$store.state.isSearching" class="loading">
-      <v-ons-progress-bar indeterminate modifier="material" size="2x"></v-ons-progress-bar>
+      <v-ons-progress-bar indeterminate modifier="material"></v-ons-progress-bar>
     </div>
     <div v-else>
       <v-ons-list-header >Search results for "{{ $store.getters.getDecodedUrl }}"</v-ons-list-header>
