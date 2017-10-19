@@ -1,6 +1,6 @@
 <template>
   <v-ons-page>
-    <custom-toolbar @aatu>My Movie List</custom-toolbar>
+    <custom-toolbar>My Movie List</custom-toolbar>
     <!-- <div id="banner" >
       <ons-icon v-show="$store.state.isSearching" size="150px" spin icon="md-spinner"></ons-icon>
     </div> -->

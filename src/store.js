@@ -10,6 +10,9 @@ import settingsPage from './components/SettingsPage';
 import toWatchPage from './components/ToWatchPage';
 import favoritesPage from './components/FavoritesPage';
 import recommendedPage from './components/RecommendedPage';
+import currentMoviesPage from './components/CurrentMoviesPage';
+import inTheatersPage from './components/InTheatersPage';
+import advancedSearchPage from './components/AdvancedSearchPage';
 
 Vue.use(Vuex);
 
@@ -38,7 +41,11 @@ export const store = new Vuex.Store({
       settingsPage,
       watchedMoviesPage,
       toWatchPage,
-      recommendedPage, 
+      recommendedPage,
+      favoritesPage,
+      currentMoviesPage,
+      inTheatersPage,
+      advancedSearchPage
     ],
   },
   getters: {
