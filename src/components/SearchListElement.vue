@@ -55,6 +55,7 @@ export default {
     getGenreNames() { // Transform genre ids into names
       for(var i=0; i<this.movie.genre_ids.length; i++) {
         this.genreNames += this.genres[this.movie.genre_ids[i]] + ", ";
+        if (i == 2) break;
       }
       this.genreNames = this.genreNames.substring(0, this.genreNames.length - 2);
     },

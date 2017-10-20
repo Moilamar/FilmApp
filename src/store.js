@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 // Pages
 import mainPage from './components/MainPage';
-import infoPage from './components/InfoPage';
+import moviePage from './components/MoviePage';
 import watchedMoviesPage from './components/WatchedMoviesPage';
 import searchPage from './components/SearchPage';
 import settingsPage from './components/SettingsPage';
@@ -37,7 +37,7 @@ export const store = new Vuex.Store({
     },
     pages: [  // Page array for navigation
       searchPage,
-      infoPage,
+      moviePage,
       settingsPage,
       watchedMoviesPage,
       toWatchPage,

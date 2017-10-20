@@ -79,7 +79,7 @@ span.list-item__title {
 }
 
 span.list-year {
-    font-size: 70%;
+    font-size: 75%;
     margin-left: 1.2vw;
 }
 
@@ -194,17 +194,20 @@ span.list-year {
         background: #333;
         color: white;
         h1.title {
-
+            font-size: 110%;
+        }
+        span.year {
+            color: white;
         }
         .poster-card {
             background: white;
             width: auto;
-            height: 40vh;
-            margin-left: 5vw;
-            margin-top: -8vw;
+            height: 35vh;
+            margin-left: 4vw;
+            margin-top: -7vw;
             padding: 0.5vh;
             .poster-big {
-                height: 40vh;
+                height: 35vh;
                 width: auto;
                 display: block;
             }

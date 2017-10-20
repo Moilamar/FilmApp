@@ -22,7 +22,6 @@ import sideMenu from './SideMenu';
 export default {
   methods: {
     toggleMenu() {
-      console.log("viddu");
       this.$store.commit('toggleSideSplitter');
     },
     pop() {
