@@ -10,9 +10,13 @@ import basicInfo from './BasicInfo';
 
 export default {
     data() {
-        console.log(this.movie);
         return {
 
+        }
+    },
+    methods: {
+        getReviews() {
+            
         }
     },
     props: [ 'movie' ],

@@ -36,13 +36,13 @@ export default {
                         this.$store.commit('pushPageStack', 0);
                         return;
                     } else {
-                        this.$ons.notification.toast("No results.");    // No results found
+                        this.$ons.notification.toast({message:"No results", timeout: 3000});    // No results found
                         return;
                     }
                 }.bind(this))
                 .catch(function (error) {   // Error caught
                     console.log("ERR: "+error.message);
-                    this.$ons.notification.toast("An error occured.");
+                    this.$ons.notification.toast({message:"An error occured", timeout: 3000});
                     return;
                 }.bind(this));
             this.$bus.emit("loading");

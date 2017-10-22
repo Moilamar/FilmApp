@@ -12,7 +12,7 @@
 
     <v-ons-list-item>
       <label>Movie Info Language</label>
-      <div class="right"><v-ons-select modifier="" style="width: 40%" v-model="settings.language[1]">
+      <div class="right"><v-ons-select modifier="" style="width: 90%" v-model="settings.language[0]">
         <option v-for="(language, index) in languages" :name="language" :key="index">
           {{ languages[index][0] }}
         </option>
@@ -21,7 +21,7 @@
 
     <v-ons-list-item>
       <label>Regional Info</label>
-      <div class="right"><v-ons-select style="width: 40%" v-model="settings.region">
+      <div class="right"><v-ons-select style="width: 90%" v-model="settings.region">
         <option v-for="(region, index) in regions" :name="region" :key="index">
           {{ regions[index] }}
         </option>
@@ -39,7 +39,7 @@
 
     <v-ons-list-item>
       <label>Sounds</label>
-      <div class="right"><v-ons-switch input-id="sounds" 
+      <div class="right"><v-ons-switch input-id="sounds"
       v-model="settings.sounds" modifier="material"></v-ons-switch></div>
     </v-ons-list-item>
 
@@ -55,9 +55,10 @@
        v-model="settings.allowSocialMedia" modifier="material"></v-ons-switch></div>
     </v-ons-list-item>
 
-    <v-ons-list-item>
-      <v-ons-button @click="applySettings()" modifier="large material"  style="margin: 6px 0">Apply</v-ons-button>
-    </v-ons-list-item>
+    <div class="center-btn">
+      <v-ons-button @click="applySettings()" modifier="large material" 
+        style="margin: 4vh">Apply</v-ons-button>
+    </div>
 
   </v-ons-page>
 </template>
@@ -69,7 +70,8 @@ export default {
   data() {
     return {
       settings: this.$store.state.settings,
-      languages: [["English","en-US"],["German",""],["French",""],["Chinese",""]],
+      languages: [["English","en-US"],["German","de-DE"],["French","fr"],["Chinese","zh-cn"],
+        ["Finnish", "fi"], ["Spanish","es"]],
       regions: ["Worldwide", "North America",  "Europe", "Asia", "China"]
     }
   },
@@ -79,10 +81,16 @@ export default {
     }
   },
   methods: {
+    test() {
+      console.log(this.settings.sounds);
+    },
     applySettings() {
       this.$store.commit('applySettings', this.settings);
+      this.$localStorage.set('settings', this.settings);
+      this.$ons.notification.toast({message:'Settings updated',timeout:3000});
     }
   },
   components: { customToolbar }
 }
 </script>
+

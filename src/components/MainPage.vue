@@ -1,6 +1,11 @@
 <template>
   <v-ons-page>
-    <custom-toolbar><span class="title">My Movie List</span></custom-toolbar>
+    <custom-toolbar>
+      <span class="title">
+        <span class="logo-container"><img src="../media/logo.svg" width="26vw"/></span>
+        My Movie List
+      </span>
+    </custom-toolbar>
     <div v-if="isLoading" class="loading">
       <v-ons-progress-bar indeterminate modifier="material"></v-ons-progress-bar>
     </div>
@@ -34,7 +39,6 @@ export default {
   },
   methods: {
     startLoading() {
-      console.log("perkele");
       this.isLoading = true;
     }
   },

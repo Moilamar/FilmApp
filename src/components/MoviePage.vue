@@ -2,10 +2,12 @@
   <v-ons-page>
     <custom-toolbar :back-label="'Back'">{{ movie.title }}</custom-toolbar>
 
-    <v-ons-tabbar swipeable position="auto" :tabs="tabs" modifier="material"
-      :visible="true" :index.sync="activeIndex">
-    </v-ons-tabbar>
-    
+    <div class="tabbar-container">
+      <v-ons-tabbar position="auto" :tabs="tabs" modifier="material"
+        :visible="true" :index.sync="activeIndex">
+      </v-ons-tabbar>
+    </div>
+
   </v-ons-page>
 </template>
 
@@ -29,31 +31,18 @@ export default {
     const movie = this.$store.state.movie;
     return {
       movie: movie,
-      videoId: null,
       tabs: [
-      {
-        /* icon: this.md() ? null : 'ion-home', */ label: 'Info', page: movieInfo,
-        props: { movie: movie }, key: "homePage"
-      },
-      {
-        /* icon: this.md() ? null : 'ion-ios-bell', */
-        label: 'Media', page: movieMedia, key: "newsPage", props: { movie: movie }
-      },
-      {
-       /*  icon: this.md() ? null : 'ion-ios-settings', */
-        label: 'Reviews', page: movieReviews, key: "settingsPage", props: { movie: movie }
-      } 
-    ],
-      monthNames: [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        { label: 'Info', page: movieInfo, props: { movie: movie }},
+        { label: 'Media', page: movieMedia, props: { movie: movie }},
+        { label: 'Reviews', page: movieReviews, props: { movie: movie }} 
       ],
-      date: null,
       activeIndex: 0
     }
   },
   created() {
-    this.getTrailer();
+    this.getCast();
+    this.getMedia();
+    this.getReviews();
   }, 
   computed: {
     trailerUrl: function() {
@@ -63,23 +52,26 @@ export default {
     }
   },
   methods: {
-    getTrailer() {
-      /* const callback = (response) => {
-        this.videoId = response.data;
-      }
-      axios.get(this.trailerUrl)
+    getCast() {
+      /* axios.get("https://api.themoviedb.org/3/movie/"+this.movie.id+
+        "/credits?api_key="+this.$store.state.apiKey)
         .then(function (response) { // Success promise
             console.log(response);
-            if (response.status == 200) {
-                callback(response);
+            if (response.status == 200) {   // Async call OK
+                this.$store.commit('setCast', response.data);
             }
-            else return;
-        })
+        }.bind(this))
         .catch(function (error) {   // Error caught
             console.log("ERR: "+error.message);
-            // Show error
+            this.$ons.notification.toast("An error occured.");
             return;
-        }); */
+        }.bind(this)); */
+    },
+    getMedia() {
+
+    },
+    getReviews() {
+      
     }
   },
   components: { customToolbar }

@@ -1,11 +1,11 @@
 <template>
   <div style="marginBottom:7.5vh">
     <side-menu></side-menu> <!-- Splitter sidebar -->
-    <v-ons-toolbar modifier="android">
-      
+    <v-ons-toolbar modifier="android" style="position:fixed">
+
       <div class="left">
-        <v-ons-back-button @click="pop()">{{ backLabel }}</v-ons-back-button>
-      </div>   
+        <v-ons-back-button >{{ backLabel }}</v-ons-back-button>
+      </div>
          
       <div class="center"><slot></slot></div>
        <div class="right">
@@ -23,9 +23,6 @@ export default {
   methods: {
     toggleMenu() {
       this.$store.commit('toggleSideSplitter');
-    },
-    pop() {
-      this.$store.commit('popPageStack');
     }
   },
   props: ['backLabel'],

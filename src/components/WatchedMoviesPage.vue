@@ -1,12 +1,15 @@
 <template>
   <v-ons-page>
     <custom-toolbar :back-label="'Back'"></custom-toolbar>
+    <search-list-element v-for="(movie, index) in movies" 
+      :movie="movie" :key="index">
+    </search-list-element>
   </v-ons-page>
 </template>
 
 <script>
   import customToolbar from './CustomToolbar';
-  import app from '../App';
+  import searchListElement from './SearchListElement';
 
   export default {
     data() {
@@ -17,6 +20,6 @@
     methods: {
       
     },
-    components: { customToolbar }
+    components: { customToolbar, searchListElement }
   }
 </script>

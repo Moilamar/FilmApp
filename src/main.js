@@ -36,16 +36,18 @@ new Vue({
         allowNotifications: true,
         allowSocialMedia: true,
         resultsPerPage: 10,
-        sounds: true,
+        sounds: false,
         language: ["English", "en-US"],
         region: "Worldwide"
       }
     },
     watchedMovies: {
-      type: []
+      type: Array,
+      default: []
     },
     toWatchMovies: {
-      type: []
+      type: Array,
+      default: []
     }
   },
   components:{App},

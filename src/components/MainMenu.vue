@@ -24,7 +24,7 @@
           <v-ons-col width="26vw">
             <v-ons-button modifier="material" ripple @click="push(5)">
               <img class="btn-img" src="../media/recommended.svg"/>
-              <p>Recommended</p>
+              <p>For you</p>
             </v-ons-button>
           </v-ons-col>
           <v-ons-col width="26vw">

@@ -25,13 +25,14 @@ export const store = new Vuex.Store({
     searchParam: "",
     movieList: [],
     movie: null,
+    cast: null,
     apiKey: "d10678700962ddf56a9a3ef14b38f1df",
     settings: { // User settings
       adultFilter: false,
       allowNotifications: true,
       allowSocialMedia: true,
       resultsPerPage: 10,
-      sounds: true,
+      sounds: false,
       language: ["English", "en-US"],
       region: "Worldwide"
     },
@@ -69,10 +70,17 @@ export const store = new Vuex.Store({
     },
     popPageStack(state) {
       state.pageStack.pop();
+      console.log(state.pageStack);
+      state.pageStack.forEach(function(page) {
+        console.log(page);
+      });
     },
     pushPageStack(state, pageIndex) {
       state.pageStack.push(state.pages[pageIndex]);
       state.crntPage = pageIndex;
+      state.pageStack.forEach(function(page) {
+        console.log(page);
+      });
     },
     setMovieList(state, movieList) {
       state.movieList = movieList;
@@ -89,6 +97,15 @@ export const store = new Vuex.Store({
     },
     applySettings(state, newSettings) {
       state.settings = newSettings;
+    },
+    setCast(state, cast) {
+      state.cast = cast;
+    },
+    setMedia() {
+
+    },
+    setReviews() {
+
     }
   }
 });

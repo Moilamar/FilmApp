@@ -1,10 +1,11 @@
 <template>
     <div id="carousel">
         <v-ons-carousel swipeable auto-scroll overscrollable :index.sync="carouselIndex" centered
-        :postchange="indexChanged()" auto-scroll-ratio="0.5" 
+        :postchange="indexChanged()" auto-scroll-ratio="0.4" 
         direction="horizontal" item-width="73%" options.animationOptions="{ duration: 3, timing: 'ease-in' }">
             <v-ons-carousel-item class="carousel-item" v-for="(movie, key) in carouselItems" :key="key">
-                <img class="carousel-img" :src="getImageUrl(key)" @click="toMoviePage(movie,key,carouselIndex)"/>
+                <img class="carousel-img" :src="getImageUrl(key)" :id="'item'+key"
+                @mouseup="toMoviePage(movie,key,carouselIndex)"/>
             </v-ons-carousel-item>
         </v-ons-carousel>
 
@@ -28,7 +29,8 @@ export default {
             dotIndex: 1,
             ready: false,
             timer: setInterval(this.nextItem, 6000),
-            allowClick: true
+            allowClick: true,
+            pressTimer: null
         }
     },
     computed: {
@@ -44,7 +46,6 @@ export default {
     },
     methods: {
         indexChanged() { // Start timer again after user interaction
-            
             clearInterval(this.timer);
         },
         getImageUrl(index) {
@@ -68,7 +69,7 @@ export default {
                 })
                 .catch(function (error) {   // Error caught
                     console.log("ERR: "+error.message);
-                    // Show error
+                    this.$ons.notification.toast({message:"An error occured", timeout: 3000});
                     return;
                 });
         },
