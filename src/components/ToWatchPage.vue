@@ -1,15 +1,15 @@
 <template>
   <v-ons-page>
-    <custom-toolbar :back-label="'Back'"></custom-toolbar>
-    <search-list-element v-for="(movie, index) in movies" 
+    <custom-toolbar :back-label="'Back'">Plan-to-Watch</custom-toolbar>
+    <to-watch-list-element v-for="(movie, index) in movies" 
       :movie="movie" :key="index">
-    </search-list-element>
+    </to-watch-list-element>
   </v-ons-page>
 </template>
 
 <script>
   import customToolbar from './CustomToolbar';
-  import searchListElement from './SearchListElement';
+  import toWatchListElement from './ToWatchListElement';
 
   export default {
     data() {
@@ -17,9 +17,6 @@
         movies: this.$localStorage.get('toWatchMovies')
       }
     },
-    methods: {
-      
-    },
-    components: { customToolbar, searchListElement }
+    components: { customToolbar, toWatchListElement }
   }
 </script>
