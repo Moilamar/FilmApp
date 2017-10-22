@@ -6,17 +6,38 @@
 
 <script>
 import basicInfo from './BasicInfo';
-
+import axios from 'axios';
 
 export default {
     data() {
         return {
-
+            images: null,
+            trailer: null
+        }
+    },
+    created() {
+        this.getImages();
+        this.getTrailer();
+    },
+    computed: {
+        imagesUrl: function() {
+            return "https://api.themoviedb.org/3/movie/"+this.movie.id+"/images?api_key="+
+                this.$store.state.apiKey+"&language="+this.$store.state.settings.language;
         }
     },
     methods: { 
         getImages() {
-
+            axios.get(this.imagesUrl)
+            .then(function (response) { // Success promise
+                console.log(response);
+                this.images = response.data;
+                return;
+            }.bind(this))
+            .catch(function (error) {   // Error caught
+                console.log("ERR: "+error.message);
+                this.$ons.notification.toast({message:"An error occured while finding images", timeout: 3000});
+                return;
+            }.bind(this));
         },
         getTrailer() {
         /*  const callback = (response) => {

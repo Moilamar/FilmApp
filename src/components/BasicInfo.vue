@@ -70,7 +70,7 @@ export default {
       date: null,
       watchedMovies: this.$localStorage.get('watchedMovies'),
       toWatchMovies: this.$localStorage.get('toWatchMovies'),
-      liked: false,
+      liked: true,
       toWatched: false,
       favorited: false
     }
@@ -120,8 +120,9 @@ export default {
         // else
     },
     toggleFavorite() {
+        this.movie.favorite = true;
         this.watchedMovies.push(this.movie);
-        this.$localStorage.set('watchedMovies');
+        this.$localStorage.set('watchedMovies', this.watchedMovies);
         // Find from list
     },
     /* openFab() {
