@@ -38,7 +38,7 @@ new Vue({
         resultsPerPage: 10,
         sounds: false,
         language: ["English", "en-US"],
-        region: "Worldwide"
+        region: ["Worldwide",null]
       }
     },
     watchedMovies: {

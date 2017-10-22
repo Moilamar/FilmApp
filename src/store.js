@@ -34,7 +34,7 @@ export const store = new Vuex.Store({
       resultsPerPage: 10,
       sounds: false,
       language: ["English", "en-US"],
-      region: "Worldwide"
+      region: ["Worldwide",null]
     },
     pages: [  // Page array for navigation
       searchPage,
