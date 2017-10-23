@@ -14,7 +14,11 @@ export default {
   data() {
     const favorites = [];
     this.$localStorage.get('watchedMovies').forEach(function(movie) {
-      if (movie.favorite) favorites.push(movie);
+      console.log(movie.favorite);
+      if (movie.favorite) {
+        
+        favorites.push(movie);
+      }
     });
     return {
         favorites

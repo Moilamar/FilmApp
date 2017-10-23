@@ -89,21 +89,22 @@ export default {
         }.bind(this)
       });
     },
-    removeFromToWatch() {
+    removeFromToWatch(prevent) {
       let movies = this.$localStorage.get('toWatchMovies');
       const index = movies.indexOf(this.movie);
       movies.splice(index, 1);
       this.$localStorage.set('toWatchMovies', movies);
       this.unChecked = false;
-      this.$ons.toast("Removed "+this.movie.title, {timeout:3000});
+      if (!prevent)
+        this.$ons.notification.toast("Removed "+this.movie.title, {timeout:3000});
     },
     markWatched(e) {
-      this.removeFromToWatch();
+      this.removeFromToWatch(true);
       let movies = this.$localStorage.get('watchedMovies');
       movies.push(this.movie);
       this.$localStorage.set('watchedMovies', movies);
       this.unChecked = false;
-      this.$ons.toast("Moved "+this.movie.title+" to My Movies", {timeout:3000});
+      this.$ons.notification.toast("Moved "+this.movie.title+" to My Movies", {timeout:3000});
     }
   },
   props: [ 'movie' ]

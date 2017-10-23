@@ -77,6 +77,7 @@ export default {
   },
   created() {
     this.date = new Date(this.movie.release_date);
+    // note to self: get liked, to watched, favorited
   }, 
   computed: {
     imageUrl: function() {
@@ -101,13 +102,18 @@ export default {
         console.log(this.watchedMovies);
         if (!this.watchedContains) { // Check whether the movie is already added
             if (this.watchedMovies === undefined) {
-                this.watchedMovies = [];
-                console.log("initializing array");
+                this.watchedMovies = [];    // Initialize array just in case
             }
             this.watchedMovies.push(this.movie);
             this.$localStorage.set('watchedMovies', this.watchedMovies);
+            this.$ons.notification.toast("Added  "+this.movie.title+" to My Movies", {timeout:3000});
         }
-        // else
+        else {
+            const index = this.watchedMovies.indexOf(this.movie);
+            this.watchedMovies.splice(index, 1);
+            this.$ons.notification.toast("Removed  "+this.movie.title+" from My Movies", {timeout:3000});
+        }
+        
     },
     toggleToWatch() {
         if (!this.watchedContains) { // Check whether the movie is already added
@@ -116,14 +122,30 @@ export default {
             }
             this.toWatchMovies.push(this.movie);
             this.$localStorage.set('toWatchMovies', this.toWatchMovies);
+            this.$ons.notification.toast("Added "+this.movie.title+" to To-Watch", {timeout:3000});
         }
-        // else
+        else {
+            const index = this.toWatchMovies.indexOf(this.movie);
+            this.toWatchMovies.splice(index, 1);
+            this.$ons.notification.toast("Removed  "+this.movie.title+" from To-Watch", {timeout:3000});
+        }
     },
     toggleFavorite() {
-        this.movie.favorite = true;
-        this.watchedMovies.push(this.movie);
-        this.$localStorage.set('watchedMovies', this.watchedMovies);
-        // Find from list
+        let movies = this.$localStorage.get('watchedMovies');
+        movies.filter(function(movie) {
+            if (movie.id == this.movie.id) {
+                if (movie.favorite) {
+                    movie.favorite = undefined;
+                    this.$ons.notification.toast("Removed "+this.movie.title+" from Favorites", {timeout:3000});
+                }
+                else {
+                    movie.favorite = true;
+                    console.log(movie.favorite);
+                    this.$ons.notification.toast("Added "+this.movie.title+" to Favorites", {timeout:3000});
+                }
+            }
+        }.bind(this));
+        this.$localStorage.set('watchedMovies', movies);
     },
     /* openFab() {
         $ons.openActionSheet({buttons:['label1', 'label2', 'label3'], 

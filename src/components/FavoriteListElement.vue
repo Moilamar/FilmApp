@@ -92,12 +92,12 @@ export default {
     removeFromFavorites() {
       let movies = this.$localStorage.get('watchedMovies');
       movies.filter(function(movie) {
-        if (movie.favorite) console.log(movie.title);
         if (movie.id == this.movie.id) movie.favorite = false;
       }.bind(this));
       this.movie.favorite = undefined;
       movies.push(this.movie);
       this.$localStorage.set('watchedMovies', movies);
+      this.$ons.notification.toast("Removed "+this.movie.title+" from Favorites", {timeout:3000});
     }
   },
   props: [ 'movie' ]
