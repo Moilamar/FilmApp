@@ -8,14 +8,14 @@ import VueBus from 'vue-bus';
 
 // Onsen imports
 import 'onsenui';
-require('onsenui/css-components-src/src/onsen-css-components.css');
-require('onsenui/css/onsenui.css');
 
 // App imports
-
 import App from './App';
-require('./style.scss');
 import { store } from './store';
+
+require('onsenui/css-components-src/src/onsen-css-components.css');
+require('onsenui/css/onsenui.css');
+require('./style.scss');
 
 Vue.use(VueOnsen);
 Vue.use(Vuetify);
@@ -37,21 +37,21 @@ new Vue({
         allowSocialMedia: true,
         resultsPerPage: 10,
         sounds: false,
-        language: ["English", "en-US"],
-        region: ["Worldwide",null]
+        language: ['English', 'en-US'],
+        region: ['Worldwide', null],
       }
     },
     watchedMovies: {
       type: Array,
-      default: []
+      default: [],
     },
     toWatchMovies: {
       type: Array,
-      default: []
+      default: [],
     }
   },
   components:{App},
   beforeCreate: function() { // Initialize user settings from localStorage
     this.$store.commit('applySettings', this.$localStorage.get('settings'));
-  }
+  },
 });

@@ -8,7 +8,6 @@
   import customToolbar from './CustomToolbar';
 
   export default {
-    
     components: { customToolbar }
   }
 </script>

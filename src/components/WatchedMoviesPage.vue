@@ -1,9 +1,11 @@
 <template>
   <v-ons-page>
     <custom-toolbar :back-label="'Back'"></custom-toolbar>
-    <search-list-element v-for="(movie, index) in movies" 
-      :movie="movie" :key="index">
-    </search-list-element>
+
+    <search-list-element v-for="(movie, index) in movies"
+                         :movie="movie"
+                         :key="index"
+    ></search-list-element>
   </v-ons-page>
 </template>
 
@@ -16,9 +18,6 @@
       return {
         movies: this.$localStorage.get('watchedMovies')
       }
-    },
-    methods: {
-      
     },
     components: { customToolbar, searchListElement }
   }

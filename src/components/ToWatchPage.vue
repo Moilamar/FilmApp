@@ -1,9 +1,11 @@
 <template>
   <v-ons-page>
     <custom-toolbar :back-label="'Back'">Plan-to-Watch</custom-toolbar>
+
     <to-watch-list-element v-for="(movie, index) in movies" 
-      :movie="movie" :key="index">
-    </to-watch-list-element>
+                           :movie="movie"
+                           :key="index"
+    ></to-watch-list-element>
   </v-ons-page>
 </template>
 

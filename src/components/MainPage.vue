@@ -2,10 +2,12 @@
   <v-ons-page>
     <custom-toolbar>
       <span class="title">
+        <!-- TODO -->
         <span class="logo-container"><img src="../media/logo.svg" width="26vw"/></span>
         My Movie List
       </span>
     </custom-toolbar>
+
     <div v-if="isLoading" class="loading">
       <v-ons-progress-bar indeterminate modifier="material"></v-ons-progress-bar>
     </div>
@@ -15,6 +17,7 @@
     <div id="banner">
       <carousel></carousel>
     </div>
+
     <div id="main-bottom">
       <search-field></search-field>     <!-- Imported component -->
       <main-menu/>  <!-- Imported component -->
@@ -47,6 +50,6 @@ export default {
     mainMenu, 
     searchField,
     carousel
-  }
+  },
 }
 </script>
